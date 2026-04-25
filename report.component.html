@@ -1,0 +1,45 @@
+
+<div class="container">
+
+  <h2>📊 דוח ביצועים</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>שם השיטה</th>
+        <th>מספר תרגיל</th>
+        <th>זמן ביצוע (ms)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let r of paginatedResults; let i = index" 
+          [class.fastest]="i === 0">
+
+        <td>{{ r.methodName }}</td>
+        <td>{{ r.targilId }}</td>
+       <td>{{ r.runTime }}</td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+  <button (click)="prevPage()" [disabled]="currentPage === 1">
+    ⬅ קודם
+  </button>
+
+  <span>עמוד {{ currentPage }}</span>
+
+  <button (click)="nextPage()" 
+          [disabled]="currentPage * pageSize >= results.length">
+    הבא ➡
+  </button>
+</div>
+
+
+
+<h4>Python השיטה המהירה ביותר היא : שימוש בשפת </h4>
+<p>
+  סיכום העבודה מצורף במסמך הסבר 
+</p>
